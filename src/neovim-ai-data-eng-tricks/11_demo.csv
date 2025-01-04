@@ -1,0 +1,22 @@
+customer_id,name,age,email,city,purchase_amount,date,status,category,loyalty_points
+1,John Smith,35,john@email.com,New York,150.50,2023-01-15,active,electronics,500
+2,Mary Johnson,,mary@email.com,Chicago,75.25,2023-01-16,inactive,clothing,100
+3,Bob Wilson,42,bob@invalid,Los Angeles,200.00,2023-01-17,active,home goods,750
+4,Sarah Brown,29,sarah@email.com,Houston,50.75,,active,groceries,250
+5,,31,james@email.com,Phoenix,125.00,2023-01-19,active,electronics,1000
+6,Lisa Davis,38,lisa@email.com,Philadelphia,-50.25,2023-01-20,inactive,clothing,150
+7,Mike Taylor,abc,mike@email.com,San Antonio,175.50,2023-01-21,active,home goods,600
+8,Jennifer Martin,45,,Dallas,225.75,2023-01-22,active,groceries,800
+9,David Anderson,33,david@email.com,San Diego,90.25,2023-01-23,,electronics,450
+10,Emily White,28,emily@invalid,San Jose,160.00,2023-01-24,active,clothing,300
+11,Chris Lee,39,chris@email.com,Austin,145.75,2023-01-25,active,home goods,700
+12,Amanda Clark,36,amanda@email.com,Jacksonville,185.25,2023-01-26,inactive,groceries,550
+13,Ryan Thompson,,ryan@email.com,San Francisco,210.50,2023-01-27,active,electronics,900
+14,Jessica Brown,41,jessica@email.com,Columbus,95.75,2023-01-28,active,clothing,400
+15,Kevin Wright,34,,Indianapolis,-75.50,2023-01-29,active,home goods,250
+16,Michelle King,32,michelle@invalid,Fort Worth,170.25,2023-01-30,inactive,groceries,650
+17,Thomas Baker,37,thomas@email.com,Charlotte,140.00,2023-01-31,active,electronics,350
+18,,44,rachel@email.com,Detroit,195.75,2023-02-01,active,clothing,850
+19,Daniel Garcia,30,daniel@email.com,El Paso,115.25,2023-02-02,inactive,home goods,200
+20,Laura Martinez,40,laura@email.com,Seattle,165.50,,active,groceries,950
+

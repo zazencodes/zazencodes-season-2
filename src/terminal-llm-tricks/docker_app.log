@@ -1,0 +1,43 @@
+2024-12-19 03:39:12,053 - my_app_name - INFO - Dequeued task from redis queue task_ready: {"task_id": "12190531-8143-0066-0000-68b9a8324012", "task_tag": "google_organic_1006886_en_desktop/2024/12/19/51370.json"}
+2024-12-19 03:39:12,053 - my_app_name - INFO - GET /v3/serp/google/organic/task_get/advanced/12190531-8143-0066-0000-68b9a8324012
+2024-12-19 03:39:12,083 - my_app_name - INFO - GET /v3/serp/google/organic/task_get/advanced/12190531-8143-0066-0000-68b9a8324012 with data: None
+2024-12-19 03:39:13,039 - my_app_name - INFO - Uploading file my-data-provider/google_organic_1006886_en_desktop/2024/12/19/51370.json to my-app-name.
+2024-12-19 03:39:13,310 - my_app_name - INFO - INSERT INTO done_tasks ("task_id", "task_tag", "time_done") VALUES (%s, %s, %s)
+2024-12-19 03:39:13,316 - my_app_name - INFO - Dequeued task from redis queue task_ready: {"task_id": "12190531-8143-0066-0000-7ab0e0e067a1", "task_tag": "google_organic_1006886_en_desktop/2024/12/19/164109.json"}
+2024-12-19 03:39:13,317 - my_app_name - INFO - GET /v3/serp/google/organic/task_get/advanced/12190531-8143-0066-0000-7ab0e0e067a1
+2024-12-19 03:39:13,367 - my_app_name - INFO - GET /v3/serp/google/organic/task_get/advanced/12190531-8143-0066-0000-7ab0e0e067a1 with data: None
+2024-12-19 03:39:14,312 - my_app_name - INFO - Uploading file my-data-provider/google_organic_1006886_en_desktop/2024/12/19/164109.json to my-app-name.
+2024-12-19 03:39:14,619 - my_app_name - INFO - INSERT INTO done_tasks ("task_id", "task_tag", "time_done") VALUES (%s, %s, %s)
+2024-12-19 03:39:14,623 - my_app_name - INFO - Dequeued task from redis queue task_ready: {"task_id": "12190531-8143-0066-0000-f0dd2339cc5f", "task_tag": "google_organic_1006886_en_desktop/2024/12/19/317502.json"}
+2024-12-19 03:39:14,624 - my_app_name - INFO - GET /v3/serp/google/organic/task_get/advanced/12190531-8143-0066-0000-f0dd2339cc5f
+2024-12-19 03:39:14,656 - my_app_name - INFO - GET /v3/serp/google/organic/task_get/advanced/12190531-8143-0066-0000-f0dd2339cc5f with data: None
+2024-12-19 03:39:15,583 - my_app_name - INFO - Uploading file my-data-provider/google_organic_1006886_en_desktop/2024/12/19/317502.json to my-app-name.
+2024-12-20 02:25:50,405 - my_app_name - ERROR - Logging failed task to postgres table failed_tasks:
+2024-12-21 02:08:48,112 - my_app_name - ERROR - Logging failed task to postgres table failed_tasks:
+2024-12-21 05:30:16,541 - my_app_name - ERROR - 503 POST https://storage.googleapis.com/upload/storage/v1/b/my-app-name/o?uploadType=multipart: {
+2024-12-22 07:30:17,227 - my_app_name - ERROR - Logging failed task to postgres table failed_tasks:
+2024-12-23 01:48:09,416 - my_app_name - ERROR - Logging failed task to postgres table failed_tasks:
+2024-12-24 01:52:05,608 - my_app_name - ERROR - Logging failed task to postgres table failed_tasks:
+2024-12-27 06:39:08,176 - my_app_name - ERROR - Failed to log task. task_id:12270519-8143-0066-0000-8e9bdac48bdd;task_tag:google_organic_21167_en_mobile/2024/12/27/285711.json
+2024-12-27 06:39:08,176 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-01 06:00:43,656 - my_app_name - ERROR - Failed to log task. task_id:01010527-8143-0066-0000-186edfcb7455;task_tag:google_organic_21167_en_mobile/2025/01/01/572298.json
+2025-01-01 06:00:43,656 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-02 01:12:44,369 - my_app_name - ERROR - 503 POST https://storage.googleapis.com/upload/storage/v1/b/my-app-name/o?uploadType=multipart: {
+2025-01-02 05:55:30,378 - my_app_name - ERROR - 503 POST https://storage.googleapis.com/upload/storage/v1/b/my-app-name/o?uploadType=multipart: {
+2025-01-03 07:50:12,668 - my_app_name - ERROR - Failed to log task. task_id:01030624-8143-0066-0000-f7753ea0ac2e;task_tag:google_organic_1002376_en_mobile/2025/01/03/220209.json
+2025-01-03 07:50:12,669 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-03 07:50:26,792 - my_app_name - ERROR - Failed to log task. task_id:01030624-8143-0066-0000-b34583f896d5;task_tag:google_organic_1002376_en_mobile/2025/01/03/572337.json
+2025-01-03 07:50:26,792 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-03 07:51:19,837 - my_app_name - ERROR - Failed to log task. task_id:01030624-8143-0066-0000-ac039ef56510;task_tag:google_organic_1002376_en_mobile/2025/01/03/572742.json
+2025-01-03 07:51:19,838 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-03 07:52:20,171 - my_app_name - ERROR - Failed to log task. task_id:01030624-8143-0066-0000-56dce9357c4a;task_tag:google_organic_1002376_en_mobile/2025/01/03/77107.json
+2025-01-03 07:52:20,172 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-03 07:52:38,438 - my_app_name - ERROR - Failed to log task. task_id:01030624-8143-0066-0000-818930c1756c;task_tag:google_organic_1002376_en_mobile/2025/01/03/404984.json
+2025-01-03 07:52:38,438 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-03 07:52:57,074 - my_app_name - ERROR - Failed to log task. task_id:01030624-8143-0066-0000-3486dfdf8c4e;task_tag:google_organic_1002376_en_mobile/2025/01/03/572836.json
+2025-01-03 07:52:57,074 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-03 07:55:38,003 - my_app_name - ERROR - Failed to log task. task_id:01030624-8143-0066-0000-947d12ddb1fa;task_tag:google_organic_1002376_en_mobile/2025/01/03/407923.json
+2025-01-03 07:55:38,003 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+2025-01-03 07:55:39,473 - my_app_name - ERROR - Failed to log task. task_id:01030623-8143-0066-0000-778c1b90c85e;task_tag:google_organic_1002376_en_mobile/2025/01/03/290692.json
+2025-01-03 07:55:39,473 - my_app_name - ERROR - duplicate key value violates unique constraint "done_tasks_pkey"
+

@@ -1,0 +1,36 @@
+.DS_Store
+node_modules
+/dist
+venv
+.ipynb_checkpoints
+__pycache__
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.ruff_cache
+
+# Data files
+# *.pkl
+
+# Video-specific
+src/data-jobs-2025/images
+src/data-jobs-2025/data_jobs_2025.mermaid
+src/rise-of-the-ai-engineer/images
+src/rise-of-the-ai-engineer/dracula.css
+src/rise-of-the-ai-engineer/ai_end_job_posting_scrape_summary_slides.*

@@ -1,0 +1,33 @@
+2025-01-03 12:00:00 [INFO] Starting process...
+2025-01-03 12:00:01 [ERROR] Failed to connect to database at localhost:5432
+2025-01-03 12:00:02 [ERROR] Connection timeout after 30 seconds
+2025-01-03 12:00:03 [INFO] Retrying database connection...
+2025-01-03 12:00:05 [WARNING] Disk space is running low (85% used)
+2025-01-03 12:00:07 [INFO] Successfully connected to database
+2025-01-03 12:00:10 [INFO] Beginning data import from source files
+2025-01-03 12:00:15 [WARNING] Found 23 records with missing values
+2025-01-03 12:00:20 [ERROR] Invalid data format in row 145: expected integer, got string
+2025-01-03 12:00:22 [INFO] Skipping invalid record
+2025-01-03 12:00:25 [WARNING] Memory usage exceeds 75% threshold
+2025-01-03 12:00:30 [ERROR] Failed to parse JSON in input file users.json
+2025-01-03 12:00:32 [INFO] Attempting automatic JSON repair
+2025-01-03 12:00:35 [WARNING] Automatic repair successful but some data loss occurred
+2025-01-03 12:00:40 [INFO] Processing batch 1 of 5
+2025-01-03 12:00:45 [ERROR] Insufficient permissions to write to output directory
+2025-01-03 12:00:47 [INFO] Falling back to temporary directory
+2025-01-03 12:00:50 [WARNING] Network latency exceeds 500ms
+2025-01-03 12:00:55 [INFO] Processing batch 2 of 5
+2025-01-03 12:01:00 [ERROR] Out of memory error in data transformation
+2025-01-03 12:01:02 [INFO] Garbage collection initiated
+2025-01-03 12:01:05 [WARNING] CPU usage at 92%
+2025-01-03 12:01:10 [INFO] Processing batch 3 of 5
+2025-01-03 12:01:15 [ERROR] Unexpected EOF in source file
+2025-01-03 12:01:20 [INFO] Processing batch 4 of 5
+2025-01-03 12:01:25 [WARNING] API rate limit approaching (95%)
+2025-01-03 12:01:30 [INFO] Processing batch 5 of 5
+2025-01-03 12:01:35 [ERROR] Failed to establish secure connection
+2025-01-03 12:01:40 [INFO] Retrying with fallback protocol
+2025-01-03 12:01:45 [WARNING] Using insecure connection
+2025-01-03 12:01:50 [INFO] Process completed with warnings
+2025-01-03 12:01:55 [INFO] Summary: 7 errors, 8 warnings, 35% data processed```
+
