@@ -59,7 +59,7 @@
 |-------------------------|-----------------------------------------------------|--------------------------------------------------|-----------------------------------------------|
 | **Responsibilities**    | • Data analysis<br>• Reporting<br>• Insights generation      | • Dashboard creation<br>• KPI monitoring<br>• Reporting  | • Problem solving<br>• Client advisory<br>• Strategy   |
 | **Key Skills**          | • Statistical analysis<br>• Data visualization<br>• SQL       | • Dashboard design<br>• Data modeling<br>• ETL          | • Business acumen<br>• Analytics<br>• Communication   |
-| **Languages**           | • SQL<br>• Python<br>• R                                     | • SQL<br>• DAX<br>• Python                              | • SQL<br>• Python<br>• R                              |
+| **Languages**           | • SQL<br>• Python                                     | • SQL<br>• Python                                 | • SQL<br>• Python                              |
 | **Tools**               | • Excel<br>• Tableau<br>• Python libraries                   | • Power BI<br>• Tableau<br>• Looker                     | • Analytics tools<br>• BI platforms<br>• Excel        |
 | **Platforms**           | • Snowflake<br>• BigQuery<br>• Redshift                     | • Snowflake<br>• Azure Analysis Services<br>• BigQuery  | • Cloud platforms<br>• Data warehouses<br>• BI tools  |
 
@@ -70,7 +70,7 @@
 |-------------------------|--------------------------------------------------|--------------------------------------------------|-----------------------------------------------|------------------------------------------------|
 | **Responsibilities**    | • Campaign analysis<br>• Attribution<br>• ROI tracking        | • Financial modeling<br>• Risk analysis<br>• Forecasting | • Product metrics<br>• User behavior<br>• A/B testing | • Revenue tracking<br>• Pipeline analysis<br>• Forecasting |
 | **Key Skills**          | • Marketing analytics<br>• Attribution<br>• Segmentation     | • Financial analysis<br>• Risk modeling<br>• Accounting  | • Product analytics<br>• Experimentation<br>• UX       | • Sales analytics<br>• Revenue modeling<br>• Operations  |
-| **Languages**           | • SQL<br>• Python<br>• R                                     | • SQL<br>• Python<br>• R                                 | • SQL<br>• Python<br>• R                              | • SQL<br>• Python<br>• R                                |
+| **Languages**           | • SQL<br>• Python                                     | • SQL<br>• Python                                 | • SQL<br>• Python                              | • SQL<br>• Python                                |
 | **Tools**               | • Google Analytics<br>• Mixpanel<br>• Amplitude              | • Excel<br>• Tableau<br>• Bloomberg                      | • Amplitude<br>• Mixpanel<br>• Optimizely            | • Salesforce<br>• Tableau<br>• Excel                    |
 | **Platforms**           | • GA4<br>• Adobe Analytics<br>• BigQuery                     | • Bloomberg<br>• FactSet<br>• Snowflake                  | • Snowflake<br>• BigQuery<br>• Amplitude              | • Salesforce<br>• Snowflake<br>• NetSuite               |
 
@@ -83,7 +83,7 @@
 |-------------------------|-----------------------------------------------------|--------------------------------------------------|------------------------------------------------|------------------------------------------------|
 | **Responsibilities**    | • Maintain data quality<br>• Define standards<br>• Documentation | • Implement governance<br>• Policy development<br>• Compliance | • Privacy compliance<br>• Data protection<br>• Risk management | • Ethical guidelines<br>• Impact assessment<br>• Fair practices |
 | **Key Skills**          | • Data management<br>• Metadata<br>• Business knowledge        | • Policy framework<br>• Compliance<br>• Risk assessment      | • Privacy laws<br>• Security protocols<br>• Risk analysis    | • Ethics frameworks<br>• Impact analysis<br>• Policy design   |
-| **Languages**           | • SQL<br>• Python<br>• R                                       | • SQL<br>• Python                                           | • SQL<br>• Python                                          | • Python<br>• R                                             |
+| **Languages**           | • SQL                                       | • SQL                                           | • SQL                                          | •  SQL                                            |
 | **Tools**               | • Collibra<br>• Alation<br>• Azure Purview                    | • Informatica<br>• Collibra<br>• OneTrust                   | • OneTrust<br>• BigID<br>• Privacera                      | • Ethics frameworks<br>• Assessment tools<br>• Documentation |
 | **Platforms**           | • Snowflake<br>• Azure<br>• AWS                               | • Cloud platforms<br>• Data catalogs<br>• Compliance tools  | • Security platforms<br>• Cloud services<br>• DLP tools    | • Compliance platforms<br>• Assessment tools<br>• Analytics |
 
@@ -93,7 +93,7 @@
 |-------------------------|----------------------------------------------------|-------------------------------------------------|------------------------------------------------|------------------------------------------------|------------------------------------------------|
 | **Responsibilities**    | • Team leadership<br>• Project execution<br>• Resource planning | • Department strategy<br>• Program oversight<br>• Growth planning | • Product roadmap<br>• Feature prioritization<br>• Stakeholder mgmt | • Strategy development<br>• Initiative planning<br>• Alignment | • Operations oversight<br>• Process optimization<br>• SLAs |
 | **Key Skills**          | • People management<br>• Project mgmt<br>• Communication       | • Strategic planning<br>• Leadership<br>• Business acumen      | • Product management<br>• Technical knowledge<br>• Agile       | • Strategic thinking<br>• Business analysis<br>• Planning    | • Operations mgmt<br>• Process design<br>• Problem solving  |
-| **Languages**           | • SQL<br>• Python<br>• R                                       | • SQL<br>• Python                                            | • SQL<br>• Python                                           | • SQL<br>• Python                                           | • SQL<br>• Python<br>• Shell scripting                     |
+| **Languages**           |                                        |                                             |                                            |                                            |                      |
 | **Tools**               | • JIRA<br>• Confluence<br>• BI tools                          | • Strategy tools<br>• Analytics<br>• Project mgmt            | • JIRA<br>• Product tools<br>• Analytics                    | • Strategy tools<br>• Analytics<br>• Planning tools         | • Monitoring tools<br>• JIRA<br>• Automation tools         |
 | **Platforms**           | • Cloud platforms<br>• Data warehouses<br>• Analytics          | • Enterprise systems<br>• Cloud platforms<br>• Analytics      | • Data platforms<br>• Cloud services<br>• Analytics          | • Enterprise systems<br>• Analytics<br>• Planning tools     | • Cloud platforms<br>• Monitoring systems<br>• DevOps      |
 
@@ -103,7 +103,7 @@
 |-------------------------|---------------------------------------------------|--------------------------------------------------|------------------------------------------------|
 | **Responsibilities**    | • Department leadership<br>• Strategy execution<br>• Team growth | • Enterprise strategy<br>• Executive leadership<br>• Innovation | • Data vision<br>• Digital transformation<br>• C-suite leadership |
 | **Key Skills**          | • Leadership<br>• Strategy<br>• Technical expertise            | • Executive leadership<br>• Strategy<br>• Business acumen     | • Corporate strategy<br>• Executive presence<br>• Vision         |
-| **Languages**           | • SQL<br>• Python<br>• R                                      | • SQL<br>• Python                                           | • SQL<br>• Python                                           |
+| **Languages**           |                                       |                                            |                                            |
 | **Tools**               | • BI platforms<br>• Analytics suites<br>• Strategy tools      | • Enterprise platforms<br>• Analytics<br>• Executive tools    | • Enterprise systems<br>• Strategy tools<br>• Analytics         |
 | **Platforms**           | • Cloud platforms<br>• Data warehouses<br>• Analytics         | • Enterprise systems<br>• Cloud platforms<br>• Analytics      | • Enterprise platforms<br>• Digital ecosystems<br>• Cloud        |
 
