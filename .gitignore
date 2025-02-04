@@ -5,7 +5,8 @@ venv
 .ipynb_checkpoints
 __pycache__
 
-# local env files
+# env files
+.env
 .env.local
 .env.*.local
 

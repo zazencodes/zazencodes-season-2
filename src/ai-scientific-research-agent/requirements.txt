@@ -1,0 +1,10 @@
+langgraph==0.2.69
+langsmith==0.3.3
+langchain_anthropic==0.3.5
+python-dotenv==1.0.1
+langchain==0.3.17
+pydantic==2.10.6
+langchain-ollama==0.2.3
+PyPDF2==3.0.1
+pylatex==1.4.2
+requests==2.32.3
