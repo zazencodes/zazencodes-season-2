@@ -3,8 +3,9 @@ from io import BytesIO
 from typing import Annotated, Literal
 
 # from langchain_anthropic import ChatAnthropic
-# from langchain_ollama.chat_models import ChatOllama
-from langchain_openai import ChatOpenAI
+from langchain_ollama.chat_models import ChatOllama
+
+# from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
 from langgraph.graph.message import add_messages
@@ -60,9 +61,9 @@ def run_workflow():
     tools = [arxiv_search, read_pdf, render_latex_pdf]
     tool_node = ToolNode(tools)
 
-    model = ChatOpenAI(model="gpt-4o-mini").bind_tools(tools)
+    # model = ChatOpenAI(model="gpt-4o-mini").bind_tools(tools)
     # model = ChatAnthropic(model="claude-3-5-sonnet-20241022").bind_tools(tools)
-    # model = ChatOllama(model="llama3-groq-tool-use:8b").bind_tools(tools)
+    model = ChatOllama(model="llama3-groq-tool-use:8b").bind_tools(tools)
 
     logger.info(f"Initialized model and loaded {len(tools)} tools")
 

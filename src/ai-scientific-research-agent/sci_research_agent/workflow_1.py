@@ -1,7 +1,8 @@
 import logging
 from io import BytesIO
 
-# from langchain_anthropic import ChatAnthropic
+from langchain_anthropic import ChatAnthropic
+
 # from langchain_ollama.chat_models import ChatOllama
 from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import MemorySaver
