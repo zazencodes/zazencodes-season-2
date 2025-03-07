@@ -1,0 +1,16 @@
+{
+  "name": "llm-comparison-tool",
+  "version": "1.0.0",
+  "description": "A tool to compare different LLM APIs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "axios": "^1.6.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "openai": "^4.20.0"
+  }
+}

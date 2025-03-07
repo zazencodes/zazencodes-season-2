@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZazenCodes LLM Showdown</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --text-color: #1f2937;
+            --background-color: #f9fafb;
+            --border-color: #e5e7eb;
+            --error-color: #ef4444;
+        --card-background: white;
+        --output-background: #f3f4f6;
+        --status-color: #6b7280;
+                }
+
+                :root.dark-theme {
+        --primary-color: #6366f1;
+        --secondary-color: #10b981;
+        --text-color: #e2e8f0;
+        --background-color: #1a1a1a;
+        --border-color: #333333;
+        --error-color: #f87171;
+        --card-background: #262626;
+        --output-background: #333333;
+        --status-color: #9ca3af;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .input-section {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        background-color: var(--card-background);
+        color: var(--text-color);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .model-selection {
+            display: flex;
+            gap: 20px;
+        }
+
+        .model-column {
+            flex: 1;
+        }
+
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .model-header h3 {
+            margin: 0;
+        }
+
+        .run-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .run-button:hover {
+            background-color: #4338ca;
+        }
+
+        .run-button:disabled {
+            background-color: #a5a5a5;
+            cursor: not-allowed;
+        }
+
+        .output-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        .output-column {
+            flex: 1;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .output-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .output-header h3 {
+            margin: 0;
+        }
+
+        .model-stats {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--status-color);
+        }
+
+        .model-stats span {
+            display: flex;
+            align-items: center;
+        }
+
+        .output-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: var(--output-background);
+            height: 400px;
+        }
+
+        .error {
+            color: var(--error-color);
+            background-color: #fee2e2;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spinner 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+
+        .status {
+            font-size: 14px;
+            color: var(--status-color);
+            margin-top: 8px;
+        }
+
+        .token-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background-color: var(--output-background);
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .cost-display {
+            padding: 12px;
+            background-color: var(--output-background);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            width: 60px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+            position: relative;
+            padding: 0;
+            margin-left: 15px;
+        }
+
+        .theme-toggle:hover {
+            background-color: #4338ca;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            background-color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            left: 3px;
+        }
+
+        .theme-toggle.dark .toggle-slider {
+            transform: translateX(30px);
+        }
+
+        .theme-toggle::before {
+            content: "Light";
+            position: absolute;
+            right: 8px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .theme-toggle.dark::before {
+            content: "Dark";
+            left: 8px;
+            right: auto;
+        }
+
+        #zc-logo {
+            filter: none;
+        }
+
+        .dark-theme #zc-logo {
+            filter: invert(1);
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <div class="container">
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+            <div style="flex: 1; display: flex; justify-content: flex-start;">
+                <img id="zc-logo" src="zc_logo_2024_03.svg" width="50" height="50" alt="ZazenCodes Logo">
+            </div>
+            <h1 style="margin-bottom: 0; text-align: center; flex: 2;">ZazenCodes LLM Showdown</h1>
+            <div style="flex: 1; display: flex; justify-content: flex-end;">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+                    <span class="toggle-slider"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="form-group">
+                <label for="prompt">Prompt:</label>
+                <textarea id="prompt" placeholder="Enter your prompt here..."></textarea>
+            </div>
+
+            <div class="model-selection">
+                <div class="model-column">
+                    <div class="model-header">
+                        <h3>OpenAI Model</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="openai-model">Select Model:</label>
+                        <select id="openai-model">
+                            <option value="gpt-4o-mini">gpt-4o-mini</option>
+                            <option value="gpt-4o">gpt-4o</option>
+                            <option value="gpt-4.5-preview">gpt-4.5-preview</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Cost Per 1M Tokens (Input):</label>
+                        <div id="openai-cost-input-display" class="cost-display">$0.15</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cost Per 1M Tokens (Output):</label>
+                        <div id="openai-cost-output-display" class="cost-display">$0.60</div>
+                    </div>
+                </div>
+
+                <div class="model-column">
+                    <div class="model-header">
+                        <h3>Anthropic Model</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="anthropic-model">Select Model:</label>
+                        <select id="anthropic-model">
+                            <option value="claude-3-5-haiku-latest">claude-3-5-haiku-latest</option>
+                            <option value="claude-3-7-sonnet-latest">claude-3-7-sonnet-latest</option>
+                            <option value="claude-3-opus-latest">claude-3-opus-latest</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Cost Per 1M Tokens (Input):</label>
+                        <div id="anthropic-cost-input-display" class="cost-display">$0.80</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cost Per 1M Tokens (Output):</label>
+                        <div id="anthropic-cost-output-display" class="cost-display">$4.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="run-button" class="run-button">Run Comparison</button>
+            <div id="status" class="status"></div>
+        </div>
+
+        <div class="output-section">
+            <div class="output-column">
+                <div class="output-header">
+                    <h3>OpenAI Output</h3>
+                    <div class="model-stats">
+                        <span id="openai-status">Ready</span>
+                    </div>
+                </div>
+                <div id="openai-token-info" class="token-info">
+                    <span>INPUT<br><strong>0</strong></span>
+                    <span>OUTPUT<br><strong>0</strong></span>
+                    <span>COST<br><strong>$0.00</strong></span>
+                    <span>TTFB<br><strong>0ms</strong></span>
+                    <span>TOTAL<br><strong>0ms</strong></span>
+                </div>
+                <div id="openai-output" class="output-content"></div>
+            </div>
+
+            <div class="output-column">
+                <div class="output-header">
+                    <h3>Anthropic Output</h3>
+                    <div class="model-stats">
+                        <span id="anthropic-status">Ready</span>
+                    </div>
+                </div>
+                <div id="anthropic-token-info" class="token-info">
+                    <span>INPUT<br><strong>0</strong></span>
+                    <span>OUTPUT<br><strong>0</strong></span>
+                    <span>COST<br><strong>$0.00</strong></span>
+                    <span>TTFB<br><strong>0ms</strong></span>
+                    <span>TOTAL<br><strong>0ms</strong></span>
+                </div>
+                <div id="anthropic-output" class="output-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+
+            // Check for saved theme preference or use preferred color scheme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark-theme');
+                themeToggle.classList.add('dark');
+            }
+
+            // Theme toggle event listener
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark-theme');
+                themeToggle.classList.toggle('dark');
+
+                if (document.documentElement.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            const runButton = document.getElementById('run-button');
+            const promptInput = document.getElementById('prompt');
+            const openaiModelSelect = document.getElementById('openai-model');
+            const anthropicModelSelect = document.getElementById('anthropic-model');
+            const openaiOutput = document.getElementById('openai-output');
+            const anthropicOutput = document.getElementById('anthropic-output');
+            const openaiStatus = document.getElementById('openai-status');
+            const anthropicStatus = document.getElementById('anthropic-status');
+            const statusElement = document.getElementById('status');
+            const openaiTokenInfo = document.getElementById('openai-token-info');
+            const anthropicTokenInfo = document.getElementById('anthropic-token-info');
+            const openaiCostInputDisplay = document.getElementById('openai-cost-input-display');
+            const openaiCostOutputDisplay = document.getElementById('openai-cost-output-display');
+            const anthropicCostInputDisplay = document.getElementById('anthropic-cost-input-display');
+            const anthropicCostOutputDisplay = document.getElementById('anthropic-cost-output-display');
+
+            // Model cost mappings
+            // https://platform.openai.com/docs/pricing
+            // https://docs.anthropic.com/en/docs/about-claude/models/all-models
+            const modelCosts = {
+                'gpt-4o-mini': { input: 0.15, output: 0.6 },
+                'gpt-4o': { input: 2.5, output: 10 },
+                'gpt-4.5-preview': { input: 75, output: 150 },
+                'claude-3-5-haiku-latest': { input: 0.80, output: 4 },
+                'claude-3-7-sonnet-latest': { input: 3, output: 15 },
+                'claude-3-opus-latest': { input: 15, output: 75 }
+            };
+
+            let openaiController = null;
+            let anthropicController = null;
+
+            // Function to update displayed costs based on selected model
+            function updateCosts() {
+                const openaiModel = openaiModelSelect.value;
+                const anthropicModel = anthropicModelSelect.value;
+
+                // Update OpenAI costs
+                const openaiCosts = modelCosts[openaiModel];
+                openaiCostInputDisplay.textContent = `$${openaiCosts.input.toFixed(2)}`;
+                openaiCostOutputDisplay.textContent = `$${openaiCosts.output.toFixed(2)}`;
+
+                // Update Anthropic costs
+                const anthropicCosts = modelCosts[anthropicModel];
+                anthropicCostInputDisplay.textContent = `$${anthropicCosts.input.toFixed(2)}`;
+                anthropicCostOutputDisplay.textContent = `$${anthropicCosts.output.toFixed(2)}`;
+            }
+
+            // Set initial costs
+            updateCosts();
+
+            // Add event listeners for model selection changes
+            openaiModelSelect.addEventListener('change', updateCosts);
+            anthropicModelSelect.addEventListener('change', updateCosts);
+
+            runButton.addEventListener('click', async function() {
+                const prompt = promptInput.value.trim();
+                if (!prompt) {
+                    statusElement.textContent = 'Please enter a prompt';
+                    return;
+                }
+
+            // Clear previous outputs
+            openaiOutput.textContent = '';
+            anthropicOutput.textContent = '';
+            openaiTokenInfo.innerHTML = '<span>INPUT<br><strong>0</strong></span><span>OUTPUT<br><strong>0</strong></span><span>COST<br><strong>$0.00</strong></span><span>TTFB<br><strong>0ms</strong></span><span>TOTAL<br><strong>0ms</strong></span>';
+            anthropicTokenInfo.innerHTML = '<span>INPUT<br><strong>0</strong></span><span>OUTPUT<br><strong>0</strong></span><span>COST<br><strong>$0.00</strong></span><span>TTFB<br><strong>0ms</strong></span><span>TOTAL<br><strong>0ms</strong></span>';
+
+                // Disable run button
+                runButton.disabled = true;
+
+                // Update status
+                statusElement.textContent = 'Running comparison...';
+                openaiStatus.innerHTML = '<div class="spinner"></div> Processing...';
+                anthropicStatus.innerHTML = '<div class="spinner"></div> Processing...';
+
+                // Create abort controllers
+                openaiController = new AbortController();
+                anthropicController = new AbortController();
+
+                // Run in parallel
+                try {
+                    await Promise.all([
+                        callOpenAI(prompt, openaiModelSelect.value, openaiController.signal),
+                        callAnthropic(prompt, anthropicModelSelect.value, anthropicController.signal)
+                    ]);
+                    statusElement.textContent = 'Comparison completed successfully';
+                } catch (error) {
+                    statusElement.textContent = 'Error: ' + error.message;
+                } finally {
+                    runButton.disabled = false;
+                }
+            });
+
+            async function callOpenAI(prompt, model, signal) {
+                try {
+                    let fullText = '';
+                    let startTime = Date.now();
+                    let firstByteTime = null;
+                    let endTime = null;
+
+                    // Create EventSource for SSE
+                    const eventSource = new EventSource(`/api/openai?${new URLSearchParams({
+                        prompt: prompt,
+                        model: model
+                    }).toString()}`);
+
+                    // Handle connection open
+                    eventSource.onopen = () => {
+                        openaiOutput.textContent = '';
+                    };
+
+                    // Handle incoming messages
+                    eventSource.onmessage = (event) => {
+                        if (event.data === '[DONE]') {
+                            endTime = Date.now();
+                            eventSource.close();
+
+                            // Calculate tokens and costs
+                            const inputTokens = prompt.split(/\s+/).length;
+                            const outputTokens = fullText.split(/\s+/).length;
+
+                            const openaiCosts = modelCosts[openaiModelSelect.value];
+                            const costInput = (inputTokens / 1000000) * openaiCosts.input;
+                            const costOutput = (outputTokens / 1000000) * openaiCosts.output;
+                            const totalCost = (costInput + costOutput).toFixed(4);
+
+                            const ttfb = firstByteTime - startTime;
+                            const totalTime = endTime - startTime;
+
+                            openaiTokenInfo.innerHTML = `<span>INPUT<br><strong>${inputTokens}</strong></span><span>OUTPUT<br><strong>${outputTokens}</strong></span><span>COST<br><strong>$${totalCost}</strong></span><span>TTFB<br><strong>${ttfb}ms</strong></span><span>TOTAL<br><strong>${totalTime}ms</strong></span>`;
+                            openaiStatus.textContent = 'Completed';
+                            return;
+                        }
+
+                        try {
+                            const data = JSON.parse(event.data);
+                            if (data.error) {
+                                openaiOutput.textContent += `Error: ${data.error}\n`;
+                                openaiStatus.textContent = 'Error';
+                                openaiStatus.style.color = 'red';
+                                eventSource.close();
+                                return;
+                            }
+
+                            if (data.content) {
+                                // Record time of first byte if this is the first content
+                                if (fullText === '' && firstByteTime === null) {
+                                    firstByteTime = Date.now();
+                                }
+
+                                fullText += data.content;
+                                openaiOutput.textContent = fullText;
+                                // Auto-scroll to bottom
+                                openaiOutput.scrollTop = openaiOutput.scrollHeight;
+                            }
+                        } catch (err) {
+                            console.error('Error parsing SSE data:', err);
+                        }
+                    };
+
+                    // Handle errors
+                    eventSource.onerror = (error) => {
+                        openaiOutput.textContent += `\nConnection error: The stream was closed or errored out.`;
+                        openaiStatus.textContent = 'Failed';
+                        openaiStatus.style.color = 'red';
+                        eventSource.close();
+                    };
+
+                    // Make the POST request to start streaming
+                    fetch('/api/openai', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            prompt: prompt,
+                            model: model,
+                        }),
+                        signal: signal
+                    }).catch(error => {
+                        openaiOutput.textContent = 'Error: ' + error.message;
+                        openaiStatus.textContent = 'Failed';
+                        openaiStatus.style.color = 'red';
+                        eventSource.close();
+                    });
+
+                    // Add cleanup function for the abort controller
+                    signal.addEventListener('abort', () => {
+                        eventSource.close();
+                    });
+
+                } catch (error) {
+                    openaiOutput.textContent = 'Error: ' + error.message;
+                    openaiStatus.textContent = 'Failed';
+                    openaiStatus.style.color = 'red';
+                }
+            }
+
+            async function callAnthropic(prompt, model, signal) {
+                try {
+                    let fullText = '';
+                    let startTime = Date.now();
+                    let firstByteTime = null;
+                    let endTime = null;
+
+                    // Create EventSource for SSE
+                    const eventSource = new EventSource(`/api/anthropic?${new URLSearchParams({
+                        prompt: prompt,
+                        model: model
+                    }).toString()}`);
+
+                    // Handle connection open
+                    eventSource.onopen = () => {
+                        anthropicOutput.textContent = '';
+                    };
+
+                    // Handle incoming messages
+                    eventSource.onmessage = (event) => {
+                        if (event.data === '[DONE]') {
+                            endTime = Date.now();
+                            eventSource.close();
+
+                            // Calculate tokens and costs
+                            const inputTokens = prompt.split(/\s+/).length;
+                            const outputTokens = fullText.split(/\s+/).length;
+
+                            const anthropicCosts = modelCosts[anthropicModelSelect.value];
+                            const costInput = (inputTokens / 1000000) * anthropicCosts.input;
+                            const costOutput = (outputTokens / 1000000) * anthropicCosts.output;
+                            const totalCost = (costInput + costOutput).toFixed(4);
+
+                            const ttfb = firstByteTime - startTime;
+                            const totalTime = endTime - startTime;
+
+                            anthropicTokenInfo.innerHTML = `<span>INPUT<br><strong>${inputTokens}</strong></span><span>OUTPUT<br><strong>${outputTokens}</strong></span><span>COST<br><strong>$${totalCost}</strong></span><span>TTFB<br><strong>${ttfb}ms</strong></span><span>TOTAL<br><strong>${totalTime}ms</strong></span>`;
+                            anthropicStatus.textContent = 'Completed';
+                            return;
+                        }
+
+                        try {
+                            const data = JSON.parse(event.data);
+                            if (data.error) {
+                                anthropicOutput.textContent += `Error: ${data.error}\n`;
+                                anthropicStatus.textContent = 'Error';
+                                anthropicStatus.style.color = 'red';
+                                eventSource.close();
+                                return;
+                            }
+
+                            if (data.content) {
+                                // Record time of first byte if this is the first content
+                                if (fullText === '' && firstByteTime === null) {
+                                    firstByteTime = Date.now();
+                                }
+
+                                fullText += data.content;
+                                anthropicOutput.textContent = fullText;
+                                // Auto-scroll to bottom
+                                anthropicOutput.scrollTop = anthropicOutput.scrollHeight;
+                            }
+                        } catch (err) {
+                            console.error('Error parsing SSE data:', err);
+                        }
+                    };
+
+                    // Handle errors
+                    eventSource.onerror = (error) => {
+                        anthropicOutput.textContent += `\nConnection error: The stream was closed or errored out.`;
+                        anthropicStatus.textContent = 'Failed';
+                        anthropicStatus.style.color = 'red';
+                        eventSource.close();
+                    };
+
+                    // Make the POST request to start streaming
+                    fetch('/api/anthropic', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            prompt: prompt,
+                            model: model,
+                        }),
+                        signal: signal
+                    }).catch(error => {
+                        anthropicOutput.textContent = 'Error: ' + error.message;
+                        anthropicStatus.textContent = 'Failed';
+                        anthropicStatus.style.color = 'red';
+                        eventSource.close();
+                    });
+
+                    // Add cleanup function for the abort controller
+                    signal.addEventListener('abort', () => {
+                        eventSource.close();
+                    });
+
+                } catch (error) {
+                    anthropicOutput.textContent = 'Error: ' + error.message;
+                    anthropicStatus.textContent = 'Failed';
+                    anthropicStatus.style.color = 'red';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+
