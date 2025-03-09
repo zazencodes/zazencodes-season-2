@@ -6,7 +6,7 @@
     <title>ZazenCodes LLM Showdown</title>
     <style>
         :root {
-            --primary-color: #4f46e5;
+            --primary-color: #059669;
             --secondary-color: #10b981;
             --text-color: #1f2937;
             --background-color: #f9fafb;
@@ -18,7 +18,7 @@
                 }
 
                 :root.dark-theme {
-        --primary-color: #6366f1;
+        --primary-color: #059669;
         --secondary-color: #10b981;
         --text-color: #e2e8f0;
         --background-color: #1a1a1a;
@@ -47,7 +47,7 @@
         h1 {
             text-align: center;
             margin-bottom: 24px;
-            color: var(--primary-color);
+            color: var(--text-color);
         }
 
         .input-section {
@@ -119,7 +119,7 @@
         }
 
         .run-button:hover {
-            background-color: #4338ca;
+            background-color: #065f46;
         }
 
         .run-button:disabled {
@@ -246,7 +246,7 @@
         }
 
         .theme-toggle:hover {
-            background-color: #4338ca;
+            background-color: #065f46;
         }
 
         .toggle-slider {
@@ -285,6 +285,82 @@
             filter: invert(1);
         }
 
+    .score-section {
+        background-color: var(--card-background);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        border: 1px solid var(--border-color);
+    }
+
+    .score-container {
+        flex: 1;
+    }
+
+    .score-label {
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--text-color);
+    }
+
+    .score-bar-container {
+        height: 24px;
+        background-color: var(--output-background);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+
+    .score-bar {
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+
+    .openai-bar {
+        background-color: #ef4444;
+    }
+
+    .anthropic-bar {
+        background-color: #3b82f6;
+    }
+
+    .score-button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: opacity 0.3s;
+    }
+
+    .score-button:hover {
+        opacity: 0.9;
+    }
+
+    .score-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .reset-button {
+        padding: 8px 16px;
+        background-color: #4B5563;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: opacity 0.3s;
+        font-size: 0.875rem;
+    }
+
+    .reset-button:hover {
+        opacity: 0.9;
+    }
+
     </style>
 </head>
 <body>
@@ -298,11 +374,30 @@
                 <img id="zc-logo" src="zc_logo_2024_03.svg" width="50" height="50" alt="ZazenCodes Logo">
             </div>
             <h1 style="margin-bottom: 0; text-align: center; flex: 2;">ZazenCodes LLM Showdown</h1>
-            <div style="flex: 1; display: flex; justify-content: flex-end;">
+            <div style="flex: 1; display: flex; justify-content: flex-end; gap: 10px; align-items: center;">
+                <button id="reset-scores" class="reset-button">Reset Scores</button>
                 <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
                     <span class="toggle-slider"></span>
                 </button>
             </div>
+        </div>
+
+        <div class="score-section">
+            <div class="score-container">
+                <div class="score-label">OpenAI Score: <span id="openai-score">0</span>/15</div>
+                <div class="score-bar-container">
+                    <div id="openai-score-bar" class="score-bar openai-bar" style="width: 0%"></div>
+                </div>
+                <button class="score-button" onclick="addScore('openai')">+1 OpenAI</button>
+            </div>
+            <div class="score-container">
+                <div class="score-label">Anthropic Score: <span id="anthropic-score">0</span>/15</div>
+                <div class="score-bar-container">
+                    <div id="anthropic-score-bar" class="score-bar anthropic-bar" style="width: 0%"></div>
+                </div>
+                <button class="score-button" onclick="addScore('anthropic')">+1 Anthropic</button>
+            </div>
+
         </div>
 
         <div class="input-section">
@@ -399,7 +494,49 @@
     </div>
 
     <script>
+        // Scoring system functions
+        function loadScores() {
+            const scores = JSON.parse(localStorage.getItem('llm-scores') || '{"openai": 0, "anthropic": 0}');
+            updateScoreDisplay('openai', scores.openai);
+            updateScoreDisplay('anthropic', scores.anthropic);
+        }
+
+        function updateScoreDisplay(model, score) {
+            const scoreElement = document.getElementById(`${model}-score`);
+            const barElement = document.getElementById(`${model}-score-bar`);
+
+            scoreElement.textContent = score;
+            const percentage = (score / 15) * 100;
+            barElement.style.width = `${percentage}%`;
+
+            // Disable score button if max score reached
+            const button = document.querySelector(`[onclick="addScore('${model}')"]`);
+            button.disabled = score >= 15;
+        }
+
+        function addScore(model) {
+            const scores = JSON.parse(localStorage.getItem('llm-scores') || '{"openai": 0, "anthropic": 0}');
+
+            if (scores[model] < 15) {
+                scores[model]++;
+                localStorage.setItem('llm-scores', JSON.stringify(scores));
+                updateScoreDisplay(model, scores[model]);
+            }
+        }
+
+        function resetScores() {
+            const scores = {"openai": 0, "anthropic": 0};
+            localStorage.setItem('llm-scores', JSON.stringify(scores));
+            updateScoreDisplay('openai', 0);
+            updateScoreDisplay('anthropic', 0);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Load saved scores
+            loadScores();
+
+            // Add reset button listener
+            document.getElementById('reset-scores').addEventListener('click', resetScores);
             // Theme toggle functionality
             const themeToggle = document.getElementById('theme-toggle');
 
