@@ -62,7 +62,7 @@ You have been hired as a consultant for a failing bookstore in a small town. Pro
 ✅ **Why this works?** GPT-4.5 is designed for agentic planning, making it ideal for breaking down a long-term business strategy.
 
 
-### Writing Assistance (Editing & Rewriting for Clarity)
+### Writing Assistance
 
 **Prompt:**
 ```
@@ -101,6 +101,8 @@ Check out the video on YouTube
 
 
 ### Emotional Intelligence & User Intent Understanding
+
+*Oops I forgot to ask this one*
 
 **Prompt:**
 ```
