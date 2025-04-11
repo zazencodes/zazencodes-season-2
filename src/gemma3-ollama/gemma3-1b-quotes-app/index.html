@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/font-awesome.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #222;
+            color: #eee;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .carousel {
+            width: 80%;
+            height: 2000px; /*Adjust as needed */
+            overflow-y: scroll;
+            transition: all 0.5s;
+        }
+
+        .carousel h2 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .carousel .quote {
+            font-size: 1.2em;
+            font-style: italic;
+            color: #eee;
+        }
+
+        .carousel .quote span {
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            word-spacing: 20px;
+        }
+
+        .carousel .quote:nth-child(odd) {
+            color: #333;
+        }
+
+        .carousel .quote:nth-child(even) {
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Favorite Quotes</h1>
+    </header>
+
+    <main>
+        <section>
+            <div class="carousel">
+                <h2>Rotating Carousel</h2>
+                <div class="quote">
+                    <span class="quote-span"> "The only way to do it is to do it better."</span>
+                </div>
+                <div class="quote">
+                    <span class="quote-span"> "It takes two hydrogens to make a molecule."</span>
+                </div>
+                <div class="quote">
+                    <span class="quote-span"> "A penny saved is a heritage that will save you many miles."</span>
+                </div>
+                <div class="quote">
+                    <span class="quote-span"> "The early bird catches the worm."</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p> Excepteur sint occaecat cupidus aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p> Accuplice deserunt ut est exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Favorite Quotes. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

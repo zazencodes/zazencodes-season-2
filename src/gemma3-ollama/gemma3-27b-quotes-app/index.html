@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Quotes Carousel</title>
+   <style>
+       body {
+           font-family: sans-serif;
+           background-color: #121212;
+           color: #fff;
+           margin: 0;
+           padding: 0;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+       }
+
+       .carousel {
+           width: 80%;
+           max-width: 600px;
+           overflow: hidden;
+       }
+
+       .carousel-inner {
+           display: flex;
+           transition: transform 0.5s ease-in-out;
+       }
+
+       .quote-card {
+           flex: 0 0 100%;
+           padding: 20px;
+           border-radius: 10px;
+           background-color: #212121;
+           text-align: center;
+       }
+
+       .quote-text {
+           font-size: 1.2em;
+           margin-bottom: 10px;
+       }
+
+       .quote-author {
+           font-style: italic;
+           color: #aaa;
+       }
+   </style>
+</head>
+<body>
+   <div class="carousel">
+       <div class="carousel-inner">
+           <div class="quote-card">
+               <p class="quote-text">"The only way to do great work is to love what you do."</p>
+               <p class="quote-author">- Steve Jobs</p>
+           </div>
+           <div class="quote-card">
+               <p class="quote-text">"Strive not to be a success, but to be of value."</p>
+               <p class="quote-author">- Albert Einstein</p>
+           </div>
+           <div class="quote-card">
+               <p class="quote-text">"The future belongs to those who believe in the beauty of their dreams."</p>
+               <p class="quote-author">- Eleanor Roosevelt</p>
+           </div>
+       </div>
+   </div>
+   <script>
+       const carouselInner = document.querySelector('.carousel-inner');
+       const quoteCards = document.querySelectorAll('.quote-card');
+       let currentIndex = 0;
+
+       function goToNextQuote() {
+           currentIndex = (currentIndex + 1) % quoteCards.length;
+           carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+       }
+
+       setInterval(goToNextQuote, 5000); // Change quote every 5 seconds
+   </script>
+</body>
+</html>

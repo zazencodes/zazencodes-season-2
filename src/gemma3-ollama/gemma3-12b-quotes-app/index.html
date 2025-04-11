@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Carousel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .quote-card {
+            width: 500px;
+            height: 300px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .quote-card.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="quote-card" id="quote1">
+            <h2>Quote 1</h2>
+            <p>This is the first quote.</p>
+        </div>
+        <div class="quote-card" id="quote2">
+            <h2>Quote 2</h2>
+            <p>This is the second quote.</p>
+        </div>
+        <div class="quote-card" id="quote3">
+            <h2>Quote 3</h2>
+            <p>This is the third quote.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const carousel = document.querySelector('.carousel');
+    const quoteCards = document.querySelectorAll('.quote-card');
+    let currentCard = 0;
+
+    function showCard(cardIndex) {
+        quoteCards.forEach((card, index) => {
+            if (index === cardIndex) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+    }
+
+    showCard(currentCard);
+
+    let intervalId = setInterval(() => {
+        currentCard = (currentCard + 1) % quoteCards.length;
+        showCard(currentCard);
+    }, 5000);
+</script>
+
+</body>
+</html>
+

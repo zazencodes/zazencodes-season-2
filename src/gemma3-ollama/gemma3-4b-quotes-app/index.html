@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Quotes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .carousel {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .quote {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quote-text {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .quote-author {
+            font-size: 1.2em;
+            color: #aaa;
+        }
+
+        /* Carousel Styling */
+        .carousel-track {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide:not(:first-child) {
+            display: none;
+        }
+
+        .carousel-slide:last-child {
+            display: flex;
+        }
+
+        .carousel-slide:not(:first-child), .carousel-slide:last-child {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <span class="quote-text">“The only way to do great work is to love what you do.”</span>
+                <span class="quote-author">- Steve Jobs</span>
+            </div>
+            <div class="carousel-slide">
+                <span class="quote-text">“Be the change that you wish to see in the world.”</span>
+                <span class="quote-author">- Mahatma Gandhi</span>
+            </div>
+            <div class="carousel-slide">
+                <span class="quote-text">“Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.”</span>
+                <span class="quote-author">- Martin Luther King Jr.</span>
+            </div>
+            <div class="carousel-slide">
+                <span class="quote-text">“The future belongs to those who believe in the beauty of their dreams.”</span>
+                <span class="quote-author">- Eleanor Roosevelt</span>
+            </div>
+            <div class="carousel-slide">
+                <span class="quote-text">“Strive not to be a success, but rather to be of value.”</span>
+                <span class="quote-author">- Albert Einstein</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

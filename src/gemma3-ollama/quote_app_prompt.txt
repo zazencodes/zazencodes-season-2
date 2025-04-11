@@ -1,0 +1,1 @@
+Make me a webpage (a single HTML file) that has a rotating carousel with my favorite quotes. Make it visually striking and beautiful and use a dark theme.
