@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wallpaper Generator</h1>
+            <p>Create beautiful custom wallpapers for your desktop</p>
+        </header>
+
+        <main>
+            <div class="controls-panel">
+                <div class="control-group">
+                    <h2>Canvas Settings</h2>
+                    <div class="control">
+                        <label for="resolution">Resolution:</label>
+                        <select id="resolution">
+                            <option value="1920x1080">1920x1080 (Full HD)</option>
+                            <option value="2560x1440">2560x1440 (2K)</option>
+                            <option value="3840x2160">3840x2160 (4K)</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                    <div class="control custom-resolution" style="display: none;">
+                        <label for="width">Width:</label>
+                        <input type="number" id="width" min="800" max="7680" value="1920">
+                        <label for="height">Height:</label>
+                        <input type="number" id="height" min="600" max="4320" value="1080">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h2>Style</h2>
+                    <div class="control">
+                        <label for="style">Wallpaper Style:</label>
+                        <select id="style">
+                            <option value="gradient">Gradient</option>
+                            <option value="geometric">Geometric</option>
+                            <option value="particles">Particles</option>
+                            <option value="waves">Waves</option>
+                            <option value="ai-generated">AI Generated</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group ai-controls" style="display: none;">
+                    <h2>AI Image Generation</h2>
+                    <div class="control">
+                        <label for="ai-prompt">Describe your wallpaper:</label>
+                        <textarea id="ai-prompt" rows="4" placeholder="Enter a detailed description of the wallpaper you want to generate..."></textarea>
+                    </div>
+                    <div class="control">
+                        <button id="generate-ai-btn" class="primary-btn">Generate with AI</button>
+                        <div id="ai-loading" class="loading-indicator" style="display: none;">
+                            <span>Generating image...</span>
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h2>Colors</h2>
+                    <div class="control">
+                        <label for="color1">Primary Color:</label>
+                        <input type="color" id="color1" value="#3498db">
+                    </div>
+                    <div class="control">
+                        <label for="color2">Secondary Color:</label>
+                        <input type="color" id="color2" value="#e74c3c">
+                    </div>
+                    <div class="control">
+                        <label for="color-mode">Color Mode:</label>
+                        <select id="color-mode">
+                            <option value="dual">Dual Colors</option>
+                            <option value="random">Random Colors</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h2>Effects</h2>
+                    <div class="control">
+                        <label for="opacity">Opacity:</label>
+                        <input type="range" id="opacity" min="0" max="100" value="100">
+                        <span id="opacity-value">100%</span>
+                    </div>
+                    <div class="control">
+                        <label for="blur">Blur:</label>
+                        <input type="range" id="blur" min="0" max="20" value="0">
+                        <span id="blur-value">0px</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="generate-btn" class="primary-btn">Generate Wallpaper</button>
+                    <button id="save-btn" class="secondary-btn">Save to Gallery</button>
+                    <button id="download-btn" class="secondary-btn">Download</button>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <div class="preview-container">
+                    <canvas id="wallpaper-canvas"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <section class="gallery-section">
+            <h2>Your Gallery</h2>
+            <div id="gallery" class="gallery-grid">
+                <!-- Saved wallpapers will appear here -->
+            </div>
+        </section>
+
+        <div id="auth-container" class="auth-container">
+            <div class="auth-panel">
+                <h2>Sign in to save your wallpapers</h2>
+                <div class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <div class="auth-buttons">
+                        <button id="signin-btn" class="primary-btn">Sign In</button>
+                        <button id="signup-btn" class="secondary-btn">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Wallpaper Generator. All rights reserved.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/openai-config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
