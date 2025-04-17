@@ -1,4 +1,8 @@
-# gemma3 tests
+# Gemma 3 Testing with Ollama
+
+### https://youtu.be/RiaCdQszjgA
+
+[![Watch on YouTube](https://img.youtube.com/vi/RiaCdQszjgA/maxresdefault.jpg)](https://youtu.be/RiaCdQszjgA)
 
 ## Install
 
