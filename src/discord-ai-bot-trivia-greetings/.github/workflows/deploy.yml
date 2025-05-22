@@ -1,0 +1,30 @@
+name: Deploy to GCP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GCP_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.GCP_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to GCP
+        run: |
+          rsync -avz --delete . ${{ secrets.GCP_USER }}@${{ secrets.GCP_HOST }}:${{ secrets.DEPLOY_PATH }}
+
+      - name: Restart Trivia Bot
+        run: |
+          ssh ${{ secrets.GCP_USER }}@${{ secrets.GCP_HOST }} 'cd /home/alex && ./restart_trivia_bot.sh'
+
