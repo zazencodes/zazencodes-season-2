@@ -25,6 +25,13 @@ A tutorial MCP (Model Context Protocol) server built with FastMCP 2.0, providing
 
 ### Option 1: Install from PyPI (Recommended)
 
+> #### THIS WILL NOT WORK.
+>
+> Use option 2 instead.
+>
+> This section is for demonstration purposes only. i.e. It's how you would want
+> to write your README if you actually published the server to PyPI.
+
 The easiest way to install and use this MCP server:
 
 #### Prerequisites
