@@ -2,6 +2,7 @@
 node_modules
 /dist
 venv
+.venv
 .ipynb_checkpoints
 __pycache__
 
