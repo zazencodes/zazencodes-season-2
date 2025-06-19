@@ -1,0 +1,39 @@
+---
+config:
+  theme: redux-dark
+---
+flowchart TD
+  subgraph "Baseline Evaluation"
+    Q["Evaluation dataset<br>15 examples"]
+    Q --> BaselineRAG["CompanyRAG (baseline)"]
+    BaselineRAG --> EvalBase["RAGEvaluator.evaluate()"]
+    EvalBase --> BaseSum["Baseline summary<br>metrics"]
+  end
+  subgraph "Optimization"
+    Trainset["Training subset<br>10 examples"]
+    BaselineRAG --> Optim["MIPROv2<br>compile()"]
+    Trainset --> Optim
+    Optim --> OptRAG["Optimized CompanyRAG"]
+  end
+  subgraph "Optimized Evaluation"
+    OptRAG --> EvalOpt["RAGEvaluator.evaluate()"]
+    EvalOpt --> OptSum["Optimized summary<br>metrics"]
+  end
+  BaseSum --> Compare["Performance comparison"]
+  OptSum --> Compare
+  classDef setup       fill:#FFECB3,stroke:#333,stroke-width:1px,color:#000
+  classDef define      fill:#F5F5F5,stroke:#333,stroke-width:1px,color:#000
+  classDef data        fill:#FFFFFF,stroke:#333,stroke-width:1px,color:#000
+  classDef model       fill:#FFE0B2,stroke:#333,stroke-width:1px,color:#000
+  classDef evaluation  fill:#D1C4E9,stroke:#333,stroke-width:1px,color:#000
+  classDef optimization fill:#BBDEFB,stroke:#333,stroke-width:1px,color:#000
+  classDef summary     fill:#B2DFDB,stroke:#333,stroke-width:1px,color:#000
+  classDef compare     fill:#FFCCBC,stroke:#333,stroke-width:1px,color:#000
+  class S1,S2 setup
+  class D1,D2,D3,D4,D5,D6 define
+  class Q,Trainset data
+  class BaselineRAG,OptRAG model
+  class EvalBase,EvalOpt evaluation
+  class Optim optimization
+  class BaseSum,OptSum summary
+  class Compare compare
