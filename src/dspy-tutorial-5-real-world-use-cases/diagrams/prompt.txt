@@ -1,0 +1,18 @@
+Here's the link to the chat. I could probably just keep adding python scripts to the bottom:
+https://chatgpt.com/g/g-p-68535e90338c81918e5270d80b1ae65a-zazencodes/c/68535f61-cb88-8004-89d7-0b0ec7e6fb12
+
+Here's the link to the mermaid renderer app:
+https://www.mermaidchart.com/app/projects/b1c9058e-eb1f-436f-9f89-9293db80d9d9/diagrams/3dfb58c9-cae7-4f0e-9445-cf4838694091/version/v0.1/edit
+
+Below is the prompt (slightly improved from the actual version based on some errors that I fixed in the chat)
+
+---
+
+I am going to show you a series of python scripts, one at a time. For each script I need you to create a mermaid diagram that I can use to explain what the script does and how data flows through the application. I will use this to introduce each code snippet in my DSPy tutorial presentation.
+
+Make sure that you create proper mermaid diagrams. Use quotes around all text in labels and do not use newlines, instead use HTML <br> tags for newlines.
+
+Add colors to make it easier to follow.
+
+Here's the first script:
+
