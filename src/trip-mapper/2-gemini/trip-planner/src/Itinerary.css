@@ -1,0 +1,25 @@
+.itinerary-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-left: 20px;
+  overflow-y: auto;
+}
+
+.day-container {
+  margin-bottom: 20px;
+}
+
+.day-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.day-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.day-container li {
+  margin-bottom: 5px;
+}

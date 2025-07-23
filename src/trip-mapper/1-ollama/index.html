@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Trip Planner</title>
+    <!-- Basic CSS for split layout: left 30% for map pins (placeholder), right 70% for itinerary -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+        .map-container {
+            width: 30%;
+            border-right: 1px solid #ccc;
+            background-color: #f0f0f0; <!-- Placeholder for map or pins -->
+        }
+        .itinerary-container {
+            width: 70%;
+            padding-left: 20px; <!-- Space between containers -->
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p.place-info {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Placeholder for map pins (will be replaced with actual pin logic later) -->
+    <div class="map-container">
+        <h2>Map with Pins</h2>
+        <p>This area will display a map or pin locations once functionality is added.</p>
+    </div>
+
+    <!-- Day-by-day itinerary section -->
+    <div class="itinerary-container" id="itinerary">
+        <button onclick="generateTrip()">Generate Random Trip!</button>
+        <p>Itinerary details will appear here after clicking the button.</p>
+        <div id="day1"></div>
+        <div id="day2"></div>
+        <div id="day3"></div>
+    </div>
+
+    <!-- JavaScript for trip generation -->
+    <script>
+        // Function to generate and display a random 3-day trip
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Document loaded. Waiting for user to click "Generate Random Trip!"');
+
+            // Example mock data if no API is available yet; can be replaced with real fetch later.
+            const places = ["Paris, France", "Tokyo, Japan", "New York, USA"];
+            let tripPlace;
+
+            function getRandomPlace() {
+                return places[Math.floor(Math.random() * places.length)];
+            }
+
+            // Display itinerary in the container once generated
+            document.getElementById('itinerary').innerHTML += `
+                <h3>Day 1: Arrival and Exploration</h3>
+                <p id="day1-text">You'll arrive at ${tripPlace}.</p>
+
+                <h3>Day 2: Sightseeing</h3>
+                <p id="day2-text">Explore famous landmarks around the city.</p>
+
+                <h3>Day 3: Departure</h3>
+                <p id="day3-text">Say goodbye to ${tripPlace} and head home.</p>
+            `;
+
+            // Button functionality
+            function generateTrip() {
+                tripPlace = getRandomPlace();
+                const itineraryDiv = document.getElementById('itinerary');
+
+                // Update the content dynamically when button is clicked
+                itineraryDiv.innerHTML = `
+                    <button onclick="generateTrip()">Generate Random Trip Again</button>
+                    <p>Your random destination: ${tripPlace}</p>
+
+                    <div id="day1"></div> <!-- Will hold day 1 content -->
+                    <div id="day2"></div> <!-- Will hold day 2 content -->
+                    <div id="day3"></div> <!-- Will hold day 3 content -->
+                `;
+
+                // Call a function to fill in the details (mocked for now)
+                document.getElementById('day1').innerHTML += '<p>Day 1: Arrive at ' + tripPlace + ' and check into your hotel.</p>';
+                document.getElementById('day2').innerHTML += '<p>Day 2: Visit attractions like the Eiffel Tower if in Paris, or Shibuya Crossing if in Tokyo.</p>';
+                document.getElementById('day3').innerHTML += '<p>Day 3: Depart from ' + tripPlace + ' after enjoying a farewell meal.</p>';
+
+                console.log('Trip generated for', tripPlace);
+            }
+        })
+    </script>
+</body>

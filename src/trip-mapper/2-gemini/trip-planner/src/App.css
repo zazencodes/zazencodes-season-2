@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.main-content {
+  display: flex;
+  height: 90vh; /* Take up remaining height */
+}
+
+.map-section {
+  flex: 1; /* Takes up half the space */
+  border-right: 1px solid #ccc;
+}
+
+.itinerary-section {
+  flex: 1; /* Takes up half the space */
+  overflow-y: auto; /* Enable scrolling for long itineraries */
+}
