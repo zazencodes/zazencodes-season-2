@@ -1,0 +1,309 @@
+{
+  "timestamp": "2025-07-27T17:23:05.725751",
+  "requested_anime": [
+    "One Punch Man",
+    "Naruto",
+    "Attack on Titan",
+    "Death Note",
+    "Demon Slayer",
+    "My Hero Academia",
+    "Dragon Ball Z",
+    "One Piece",
+    "Fullmetal Alchemist",
+    "Tokyo Ghoul",
+    "Hunter x Hunter",
+    "Cowboy Bebop"
+  ],
+  "results": {
+    "One Punch Man": {
+      "status": "success",
+      "data": [
+        {
+          "content": "Prophecies don't ever come true.",
+          "anime": {
+            "id": 188,
+            "name": "One Punch Man",
+            "altName": "One Punch Man"
+          },
+          "character": {
+            "id": 213,
+            "name": "Saitama"
+          }
+        },
+        {
+          "content": "Heroes and the police don't do their jobs because someone says \"please\". Right?",
+          "anime": {
+            "id": 188,
+            "name": "One Punch Man",
+            "altName": "One Punch Man"
+          },
+          "character": {
+            "id": 213,
+            "name": "Saitama"
+          }
+        },
+        {
+          "content": "If you really want to be strong... Stop caring about what your surrounding thinks of you!",
+          "anime": {
+            "id": 188,
+            "name": "One Punch Man",
+            "altName": "One Punch Man"
+          },
+          "character": {
+            "id": 213,
+            "name": "Saitama"
+          }
+        },
+        {
+          "content": "You are calm and intelligent, but youth can invite disaster. Do not fight alone.",
+          "anime": {
+            "id": 188,
+            "name": "One Punch Man",
+            "altName": "One Punch Man"
+          },
+          "character": {
+            "id": 330,
+            "name": "Dr. Kuseno"
+          }
+        },
+        {
+          "content": "A hero must be tough, strong and beautiful... As well as able to promptly and splendidly eradicate evil.",
+          "anime": {
+            "id": 188,
+            "name": "One Punch Man",
+            "altName": "One Punch Man"
+          },
+          "character": {
+            "id": 435,
+            "name": "Sweet Mask"
+          }
+        }
+      ]
+    },
+    "Naruto": {
+      "status": "success",
+      "data": [
+        {
+          "content": "Because of the existence of love - sacrifice is born. As well as hate. Then one comprehends... one knows PAIN.",
+          "anime": {
+            "id": 266,
+            "name": "Naruto",
+            "altName": "Naruto"
+          },
+          "character": {
+            "id": 316,
+            "name": "Pain"
+          }
+        },
+        {
+          "content": "Physical wounds will definitely bleed and may look painful \nbut over time they heal by themselves and if you apply medicine, \nthey will heal faster. What's troublesome are wounds of the heart. Nothing is harder to heal. They're a bit different from physical injuries. You can't apply medicine for one thing and sometimes, they never heal. There's only one cure for a wound of the heart. \nIt's a bit bothersome and you can only receive it from someone else. What is it? Love.",
+          "anime": {
+            "id": 266,
+            "name": "Naruto",
+            "altName": "Naruto"
+          },
+          "character": {
+            "id": 418,
+            "name": "Yashamaru"
+          }
+        },
+        {
+          "content": "The many lives lost during long years of conflict... because of those selfless sacrifices, we are able to bathe in peace and prosperity now. To ingrain this history within the new generation will be a vital cog in helping to maintain the peace.",
+          "anime": {
+            "id": 341,
+            "name": "Boruto: Naruto Next Generations",
+            "altName": "Boruto: Naruto Next Generations"
+          },
+          "character": {
+            "id": 450,
+            "name": "Naruto Uzumaki"
+          }
+        },
+        {
+          "content": "Trying to improve by learning from others that is what calls friendship.",
+          "anime": {
+            "id": 266,
+            "name": "Naruto",
+            "altName": "Naruto"
+          },
+          "character": {
+            "id": 532,
+            "name": "Shino Aburame"
+          }
+        },
+        {
+          "content": "When captured birds grow wiser, they try to open the cage with their beaks. They don't give up, because they want to fly again.",
+          "anime": {
+            "id": 266,
+            "name": "Naruto",
+            "altName": "Naruto"
+          },
+          "character": {
+            "id": 773,
+            "name": "Genma Shiranui"
+          }
+        }
+      ]
+    },
+    "Attack on Titan": {
+      "status": "success",
+      "data": [
+        {
+          "content": "We’re going to explore the outside world someday, right? Far beyond these walls, there’s flaming water land made of ice, and fields of sand spread wide. It’s the world my parents wanted to go to.",
+          "anime": {
+            "id": 985,
+            "name": "Attack on Titan",
+            "altName": "Attack on Titan"
+          },
+          "character": {
+            "id": 2509,
+            "name": "Armin Arlert"
+          }
+        },
+        {
+          "content": "Willpower alone isn’t enough in battle.",
+          "anime": {
+            "id": 985,
+            "name": "Attack on Titan",
+            "altName": "Attack on Titan"
+          },
+          "character": {
+            "id": 2509,
+            "name": "Armin Arlert"
+          }
+        },
+        {
+          "content": "I don’t like the terms good person or bad person because it’s impossible to be entirely good to everyone, or entirely bad to everyone. To some, you are a good person, while to others you are a bad person.",
+          "anime": {
+            "id": 985,
+            "name": "Attack on Titan",
+            "altName": "Attack on Titan"
+          },
+          "character": {
+            "id": 2509,
+            "name": "Armin Arlert"
+          }
+        },
+        {
+          "content": "People are crazy for believing that these walls will protect us forever. Even though the walls have been intact for the past 100 years, there’s nothing that can guarantee they won’t be broken down today.",
+          "anime": {
+            "id": 985,
+            "name": "Attack on Titan",
+            "altName": "Attack on Titan"
+          },
+          "character": {
+            "id": 2509,
+            "name": "Armin Arlert"
+          }
+        },
+        {
+          "content": "I think there are times people have to die… even if I don’t like it.",
+          "anime": {
+            "id": 985,
+            "name": "Attack on Titan",
+            "altName": "Attack on Titan"
+          },
+          "character": {
+            "id": 2509,
+            "name": "Armin Arlert"
+          }
+        }
+      ]
+    },
+    "Death Note": {
+      "status": "success",
+      "data": [
+        {
+          "content": "I am the God placed here to save the weak and create a perfect world.",
+          "anime": {
+            "id": 480,
+            "name": "Death Note",
+            "altName": "Death Note"
+          },
+          "character": {
+            "id": 763,
+            "name": "Light Yagami"
+          }
+        },
+        {
+          "content": "Unless someone makes the first move, nothing will happen.",
+          "anime": {
+            "id": 480,
+            "name": "Death Note",
+            "altName": "Death Note"
+          },
+          "character": {
+            "id": 930,
+            "name": "Misa Amane"
+          }
+        },
+        {
+          "content": "There is no heaven or hell. No matter what you do while you're alive, everybody goes to the same place once you die. Death is Equal.",
+          "anime": {
+            "id": 480,
+            "name": "Death Note",
+            "altName": "Death Note"
+          },
+          "character": {
+            "id": 966,
+            "name": "L Lawliet"
+          }
+        },
+        {
+          "content": "In this world, there are very few people who actually trust each other.",
+          "anime": {
+            "id": 480,
+            "name": "Death Note",
+            "altName": "Death Note"
+          },
+          "character": {
+            "id": 763,
+            "name": "Light Yagami"
+          }
+        },
+        {
+          "content": "In this world, there is only good and evil, that was the first universal truths I grasped from observing the world around me when I was a child. Every human being without exception ends up falling into one category or the other.",
+          "anime": {
+            "id": 480,
+            "name": "Death Note",
+            "altName": "Death Note"
+          },
+          "character": {
+            "id": 1196,
+            "name": "Mikami Teru"
+          }
+        }
+      ]
+    },
+    "Demon Slayer": {
+      "error": "Failed to fetch quotes for 'Demon Slayer': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=Demon%20Slayer"
+    },
+    "My Hero Academia": {
+      "error": "Failed to fetch quotes for 'My Hero Academia': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=My%20Hero%20Academia"
+    },
+    "Dragon Ball Z": {
+      "error": "Failed to fetch quotes for 'Dragon Ball Z': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=Dragon%20Ball%20Z"
+    },
+    "One Piece": {
+      "error": "Failed to fetch quotes for 'One Piece': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=One%20Piece"
+    },
+    "Fullmetal Alchemist": {
+      "error": "Failed to fetch quotes for 'Fullmetal Alchemist': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=Fullmetal%20Alchemist"
+    },
+    "Tokyo Ghoul": {
+      "error": "Failed to fetch quotes for 'Tokyo Ghoul': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=Tokyo%20Ghoul"
+    },
+    "Hunter x Hunter": {
+      "error": "Failed to fetch quotes for 'Hunter x Hunter': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=Hunter%20x%20Hunter"
+    },
+    "Cowboy Bebop": {
+      "error": "Failed to fetch quotes for 'Cowboy Bebop': 429 Client Error: Too Many Requests for url: https://api.animechan.io/v1/quotes?anime=Cowboy%20Bebop"
+    }
+  },
+  "summary": {
+    "total_anime_requested": 12,
+    "successful_fetches": 4,
+    "failed_fetches": 8,
+    "total_quotes": 20
+  }
+}
