@@ -1,0 +1,50 @@
+# Node modules
+/node_modules/
+
+# Next.js build output
+/.next/
+/out/
+
+# Build output
+/dist/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Testing cache and outputs
+/coverage/
+/testsprite_tests/tmp/
+/testsprite_tests/**/*.html
+/tests/*
+*.log
+
+# Local environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Optional: ignore example envs if not used in production
+# !.env.example
+
+# Prisma
+/prisma/dev.db
+/prisma/dev.db-journal
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+.vscode/
+.idea/
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Optional: lock files for other package managers if not in use
+# yarn.lock
+# pnpm-lock.yaml

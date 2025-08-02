@@ -1,0 +1,569 @@
+[
+  {
+    "id": "TC001",
+    "title": "Landing Page Loads Successfully with Marketing Content",
+    "description": "Verify that the marketing landing page loads correctly with hero section, feature highlights, 3-tier pricing plans, and call-to-action buttons visible and functional.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the root URL of the application."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that hero section with product pitch is visible."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify features grid displays all key features described."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure 3-tier pricing plans are shown with appropriate details."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that call-to-action buttons are present and clickable."
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "User Signup with Email and Password",
+    "description": "Test user signup flow creating a new account with valid email and password, followed by successful login.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to signup page."
+      },
+      {
+        "type": "action",
+        "description": "Enter a valid, unique email address and a strong password."
+      },
+      {
+        "type": "action",
+        "description": "Submit the signup form."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that the account is created successfully and user is redirected to dashboard or login."
+      },
+      {
+        "type": "action",
+        "description": "If redirected to login, input email and password and submit."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is logged in and session is maintained (e.g., access to dashboard)."
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "User Login Failure with Incorrect Credentials",
+    "description": "Ensure that login attempt with incorrect email or password fails and shows appropriate error message.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page."
+      },
+      {
+        "type": "action",
+        "description": "Input invalid email or password combination."
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that login is rejected with an error notification."
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "API Key Generation and Copy in User Dashboard",
+    "description": "Validate that an authenticated user can generate a new MCP API key, view existing keys, and copy the key to clipboard.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as a valid user and navigate to the User Dashboard."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that API keys section is visible."
+      },
+      {
+        "type": "action",
+        "description": "Click the button to generate a new API key."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm a new API key appears in the list."
+      },
+      {
+        "type": "action",
+        "description": "Click the copy button next to an API key."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure the API key is copied to clipboard successfully."
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Monthly Token Usage Chart Renders with Data",
+    "description": "Verify that the monthly token usage chart is displayed correctly on the dashboard with accurate backend data and updates accordingly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as a valid user and navigate to the User Dashboard."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that the usage chart component is rendered."
+      },
+      {
+        "type": "assertion",
+        "description": "Check the chart data matches backend usage metrics for the user."
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Route Explorer Displays MCP Tools with Parameters and Examples",
+    "description": "Check that the Route Explorer page displays all MCP tools (search_articles, get_article, get_facts_about, get_latest_news) with input parameters and sample responses.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in and navigate to Route Explorer page."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that all four MCP tools are listed."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that each tool shows required input parameters."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify sample results are displayed for example inputs."
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "User Updates Email in Settings",
+    "description": "Validate that a user can update their email address via the User Settings page and that the change persists after refresh or new login.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in and navigate to User Settings page."
+      },
+      {
+        "type": "action",
+        "description": "Input a new valid email address in the email update form."
+      },
+      {
+        "type": "action",
+        "description": "Submit the email update."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that the update confirmation is shown."
+      },
+      {
+        "type": "action",
+        "description": "Log out and log in again using the new email if applicable."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that the new email is recognized and user accesses their account."
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "User Data Export Produces Correct JSON File",
+    "description": "Ensure that a user can export their personal data from the User Settings page in GDPR-compliant JSON format and the data includes all relevant user information.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in and navigate to User Settings page."
+      },
+      {
+        "type": "action",
+        "description": "Click the button to export personal data."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that a JSON file download is triggered."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify file contents include user profile, API keys, usage, and other personal info."
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "User Account Deletion with GDPR Compliance",
+    "description": "Test the ability for a user to request account deletion from the User Settings page, ensuring data is removed and confirmation is provided.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in and navigate to User Settings page."
+      },
+      {
+        "type": "action",
+        "description": "Initiate account deletion request."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that a confirmation prompt is shown."
+      },
+      {
+        "type": "action",
+        "description": "Confirm account deletion action."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that user is logged out and account data is no longer accessible."
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Admin Panel Access Control and Metrics Display",
+    "description": "Confirm that only admin-role users can access the Admin Panel, and that system metrics and user management features display data accurately.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as admin user and navigate to Admin Panel."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that system metrics are visible and reflect backend data."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that user CRUD operations are listed."
+      },
+      {
+        "type": "action",
+        "description": "Log out and log in as regular user."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to navigate to Admin Panel."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure access is denied or user is redirected appropriately."
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Admin User CRUD Operations",
+    "description": "Validate that an admin can create, read, update, and delete user accounts via the Admin Panel user management interface.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as admin and navigate to user management section."
+      },
+      {
+        "type": "action",
+        "description": "Create a new user with valid details."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new user appears in the user list."
+      },
+      {
+        "type": "action",
+        "description": "Edit an existing user’s details."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm updated details are saved and displayed."
+      },
+      {
+        "type": "action",
+        "description": "Delete a user from the system."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the user is removed from the list."
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Admin Plan Override and Token Reset",
+    "description": "Check that the admin can override user subscription plans and reset their tokens from the admin dashboard, and that changes reflect immediately.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as admin and navigate to user management."
+      },
+      {
+        "type": "action",
+        "description": "Select a user and change their subscription plan."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the change is saved and visible on user details."
+      },
+      {
+        "type": "action",
+        "description": "Perform token reset for the user."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm tokens are reset and user is notified or tokens invalidated."
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Role-Based Route Protection Middleware Blocks Unauthorized Access",
+    "description": "Test that protected routes enforce authentication and only allow users with correct roles to access specified pages or API routes.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Attempt to access protected user dashboard URL without login."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is redirected to login page or blocked."
+      },
+      {
+        "type": "action",
+        "description": "Log in as user without admin role and attempt to access admin panel URL."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access is denied or redirected away."
+      },
+      {
+        "type": "action",
+        "description": "Log in as admin and access admin protected routes."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm access is granted successfully."
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Dark Mode Theme Toggles and Persists",
+    "description": "Verify that dark mode can be toggled manually by the user, respects system preferences on initial load, and persists user choice across sessions.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load the app with system preference set to dark mode."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm app renders in dark mode by default."
+      },
+      {
+        "type": "action",
+        "description": "Toggle theme to light mode using theme switch control."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify UI updates to light mode."
+      },
+      {
+        "type": "action",
+        "description": "Reload the app or navigate away and back."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that the manually selected theme persists."
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Responsive UI Rendering on Various Screen Sizes",
+    "description": "Check the application’s UI responsiveness by rendering on multiple screen sizes (mobile, tablet, desktop) and ensuring usability and layout correctness.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the app in a desktop viewport."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm all interface components are rendered correctly without overlap or cutoff."
+      },
+      {
+        "type": "action",
+        "description": "Resize viewport to tablet screen size."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure layout adjusts with appropriate navigation and content scaling."
+      },
+      {
+        "type": "action",
+        "description": "Resize viewport to mobile screen size."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify usability of navigation, input fields, buttons, and visibility of content."
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Full Local Setup with Database Migrations and Seeding",
+    "description": "Validate the entire application and backend can be started locally with a single command, succeeding in running database migrations and seed data insertion without errors.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Clone the repository and install dependencies."
+      },
+      {
+        "type": "action",
+        "description": "Run the setup command to start the application locally."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that database migrations run successfully."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify autoseeding populates database with initial data."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that both frontend and backend start without runtime errors."
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Error Handling on Invalid API Key Generation",
+    "description": "Test that the system properly handles attempts to generate API keys under invalid or edge case conditions (e.g., exceeding key limits) and provides user-friendly error messages.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as a user who has reached the API key generation limit."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to generate a new API key."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that the system rejects the request with a clear error message."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm no new API key is created."
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "User Settings Email Change Validation for Duplicate Email",
+    "description": "Ensure that when a user attempts to change their email to an email already registered by another user, the system prevents the change and shows a validation error.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as user A."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to update email to another existing user B's email."
+      },
+      {
+        "type": "action",
+        "description": "Submit the email change request."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that validation error indicates email already in use."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm user A's email remains unchanged."
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "API Route Authentication and Authorization Checks",
+    "description": "Test REST API routes to ensure they properly enforce authentication and authorizations for user and admin operations using various invalid, valid, and edge case tokens and sessions.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Make requests to protected user API routes without authentication token."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API responds with unauthorized error."
+      },
+      {
+        "type": "action",
+        "description": "Make authenticated requests with user token to admin-only API routes."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm access is forbidden or denied."
+      },
+      {
+        "type": "action",
+        "description": "Make authenticated admin requests to admin API routes."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify successful execution of API operations."
+      }
+    ]
+  }
+]

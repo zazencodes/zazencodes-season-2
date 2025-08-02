@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "project": "News Data MCP Frontend & Backend",
+    "date": "2025-07-30",
+    "prepared_by": "Software Development Manager"
+  },
+  "product_overview": "A Next.js web application that enables developers to subscribe to the News Data MCP, manage their API keys, monitor usage, and explore MCP data endpoints for news articles integration. Provides a user-friendly marketing site, secure authentication, user dashboards, and admin management tools, all running on a unified Next.js + SQLite stack locally.",
+  "core_goals": [
+    "Deliver a seamless developer onboarding experience via a compelling marketing site with clear plans and signup flow.",
+    "Provide secure and flexible authentication with email/password login and role-based access control.",
+    "Enable users to manage API keys, view usage metrics, and explore news data routes through an intuitive dashboard.",
+    "Support subscription management including plan viewing and modification (demo with test database).",
+    "Offer an admin panel for effective user and system management including metrics and user control.",
+    "Ensure GDPR-compliant account management such as data export and account deletion.",
+    "Deliver a responsive and accessible UI with dark mode and SEO optimizations.",
+    "Run the entire product end-to-end locally with minimal setup via a single command."
+  ],
+  "key_features": [
+    "Marketing Landing Page with hero pitch, features, 3-tier pricing, and call-to-action buttons.",
+    "Complete authentication system supporting email/password login with session and role management.",
+    "Protected User Dashboard showing API keys, monthly token quota, usage charts (via Recharts), and quick navigation links.",
+    "Route Explorer visualizing MCP tools: search_articles, get_article, get_facts_about, and get_latest_news with parameters and sample results.",
+    "User Settings for profile updates, email changes, data export, and account deletion following GDPR.",
+    "Admin Panel for system metrics, user CRUD operations, plan overrides, token resets, and administrative settings.",
+    "Backend API routes supporting user and admin operations including profile, API keys, data exports and user management.",
+    "Database schema managed via Prisma ORM using SQLite with autoseeding and migrations.",
+    "Route protection middleware to enforce authentication and role-based access control.",
+    "Dark mode theme provider with system preference detection and manual toggle support."
+  ],
+  "user_flow_summary": [
+    "Visitor lands on the marketing landing page, reads about the product, compares plans, and clicks call-to-action to sign up.",
+    "User completes email/password signup and logs in to access their dashboard.",
+    "User views their plan details, generates and copies MCP API keys, and monitors their monthly token usage via charts.",
+    "User explores the Route Explorer to test MCP endpoints with example parameters and responses for various news data queries.",
+    "User accesses the Settings page to update email, export personal data, or request account deletion in compliance with GDPR.",
+    "Admin logs into the Admin Panel to review system-level metrics, manage user accounts, override plans, and reset tokens as needed."
+  ],
+  "validation_criteria": [
+    "The landing page loads correctly with marketing content and call-to-action buttons.",
+    "Users can sign up and sign in with email/password and their sessions are maintained securely.",
+    "Users can generate MCP API keys, view usage charts that fetch data from the backend, and copy keys reliably.",
+    "Route Explorer displays correct parameters and example responses for all MCP tools.",
+    "Settings updates such as email change, data export JSON, and account deletion work correctly and follow GDPR guidelines.",
+    "Admin Panel shows accurate system metrics and allows user CRUD, plan overrides, and token resets without authorization leaks.",
+    "Role-based route protection middleware prevents unauthorized access to protected routes.",
+    "The app renders responsively on multiple screen sizes with dark mode working as expected.",
+    "The entire app and backend run locally with database migrations and seeding succeeding on initial setup."
+  ],
+  "code_summary": {
+    "tech_stack": [
+      "TypeScript",
+      "Next.js 14",
+      "React",
+      "Tailwind CSS",
+      "NextAuth.js",
+      "Prisma ORM",
+      "SQLite",
+      "React Query",
+      "Zustand",
+      "Recharts",
+      "Lucide React",
+      "bcryptjs"
+    ],
+    "features": [
+      {
+        "name": "Landing Page",
+        "description": "Marketing website with hero section, features grid, 3-tier pricing, and call-to-action buttons for user acquisition",
+        "files": [
+          "app/page.tsx",
+          "app/layout.tsx",
+          "app/globals.css"
+        ]
+      },
+      {
+        "name": "Authentication System",
+        "description": "Complete authentication flow with email/password login, session management, and role-based access control using NextAuth.js",
+        "files": [
+          "lib/auth.ts",
+          "app/auth/signin/page.tsx",
+          "app/auth/signup/page.tsx",
+          "app/api/auth/register/route.ts",
+          "app/api/auth/[...nextauth]/route.ts",
+          "types/next-auth.d.ts"
+        ]
+      },
+      {
+        "name": "User Dashboard",
+        "description": "Protected user dashboard with API key management, usage tracking charts, plan information, and token monitoring",
+        "files": [
+          "app/dashboard/page.tsx"
+        ]
+      },
+      {
+        "name": "Route Explorer",
+        "description": "Interactive documentation showcasing 4 MCP tools: search_articles, get_article, get_facts_about, and get_latest_news with parameter examples",
+        "files": [
+          "app/explorer/page.tsx"
+        ]
+      },
+      {
+        "name": "User Settings",
+        "description": "User account management including profile updates, data export (GDPR compliance), and account deletion functionality",
+        "files": [
+          "app/settings/page.tsx"
+        ]
+      },
+      {
+        "name": "Admin Panel",
+        "description": "Complete admin dashboard with system metrics, user management, role-based access control, and administrative settings",
+        "files": [
+          "app/admin/layout.tsx",
+          "app/admin/page.tsx",
+          "app/admin/users/page.tsx",
+          "app/admin/settings/page.tsx"
+        ]
+      },
+      {
+        "name": "Admin API Routes",
+        "description": "Backend API endpoints for admin functionality including user CRUD operations, statistics, and token management",
+        "files": [
+          "app/api/admin/stats/route.ts",
+          "app/api/admin/users/route.ts",
+          "app/api/admin/users/[id]/route.ts",
+          "app/api/admin/users/[id]/reset-tokens/route.ts"
+        ]
+      },
+      {
+        "name": "User API Routes",
+        "description": "Backend API endpoints for user management including profile operations, API key generation, and data export",
+        "files": [
+          "app/api/user/profile/route.ts",
+          "app/api/user/api-keys/route.ts",
+          "app/api/user/export/route.ts"
+        ]
+      },
+      {
+        "name": "Database Schema",
+        "description": "SQLite database with Prisma ORM including user management, authentication sessions, API keys, and usage tracking",
+        "files": [
+          "prisma/schema.prisma",
+          "prisma/seed.ts",
+          "lib/prisma.ts"
+        ]
+      },
+      {
+        "name": "Route Protection Middleware",
+        "description": "Server-side middleware for protecting routes based on user authentication and role-based access control",
+        "files": [
+          "middleware.ts"
+        ]
+      },
+      {
+        "name": "Theme Provider",
+        "description": "Dark mode support and theme management using next-themes with automatic system preference detection",
+        "files": [
+          "app/providers.tsx"
+        ]
+      },
+      {
+        "name": "Utility Functions",
+        "description": "Helper functions and utilities for common operations, styling, and data manipulation",
+        "files": [
+          "lib/utils.ts"
+        ]
+      }
+    ]
+  }
+}
