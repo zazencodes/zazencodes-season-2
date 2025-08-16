@@ -1,3 +1,4 @@
-dspy-ai==2.6.27
-openai==1.88.0
+dspy-ai==3.0.1
+openai==1.99.9
 python-dotenv==1.1.0
+sentence-transformers==5.1.0

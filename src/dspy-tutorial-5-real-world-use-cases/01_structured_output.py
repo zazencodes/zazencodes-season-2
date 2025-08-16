@@ -1,6 +1,5 @@
 """
-01_structured_output.py
-Stage 1 – Structured Output Extraction
+Structured Output Extraction
 
 Turn messy support emails into structured JSON tickets.
 
@@ -8,36 +7,40 @@ Run:
     python 01_structured_output.py
 """
 
-# DOCS: https://github.com/stanfordnlp/dspy?tab=readme-ov-file#signatures
-import os, dspy
+from typing import Literal
+
+import dspy
 from dotenv import load_dotenv
 
-load_dotenv()  # loads OPENAI_API_KEY
+# Load OPENAI_API_KEY
+load_dotenv()
 
-# Configure DSPy once (you can reuse across scripts)
-dspy.settings.configure(
-    lm=dspy.OpenAI(model="gpt-4o-mini"),   # DOCS: https://github.com/stanfordnlp/dspy?tab=readme-ov-file#lms
-    cache="sqlite",                        # persistent cache so re‑runs are free
-    temperature=0.2,
-)
+# Configure DSPy
+lm = dspy.LM("openai/gpt-5-nano", temperature=1, max_tokens=20000)
+dspy.settings.configure(lm=lm)
 
-# ---- 1. Define the task signature -----------------------------------------
+
+# ---- Define the task signature -----------------------------------------
 class SupportEmail(dspy.Signature):
     email: str = dspy.InputField()
-    priority: str = dspy.OutputField(desc="low, medium, high")
-    product: str = dspy.OutputField()
-    sentiment: str = dspy.OutputField(desc="positive, neutral, negative")
+    subject: str = dspy.OutputField(desc="Subject line of the email")
+    priority: Literal["low", "medium", "high"] = dspy.OutputField()
+    product: str = dspy.OutputField(
+        desc="The product(s) referenced. Output an empty string if unknown."
+    )
+    negative_sentiment: bool = dspy.OutputField(desc="True/False")
 
-# ---- 2. Instantiate a Predict module --------------------------------------
-extract_ticket = dspy.Predict(SupportEmail)   # DOCS: https://github.com/stanfordnlp/dspy?tab=readme-ov-file#predict
 
-# ---- 3. Demo --------------------------------------------------------------
+# ---- Instantiate a Predict module --------------------------------------
+extract_ticket = dspy.Predict(SupportEmail)
+
+# ---- Demo --------------------------------------------------------------
 sample_emails = [
     """
     Subject: Screen cracked after one week!
 
     Hi team,
-    I purchased the **AlphaTab 11** tablet last Monday and the glass already shattered.
+    I purchased the AlphaTab 11 tablet last Monday and the glass already shattered.
     I’m extremely disappointed and need a replacement ASAP.
     Best,
     Carla
@@ -46,18 +49,29 @@ sample_emails = [
     Subject: Subscription renewal question
 
     Hello,
-    My **CloudSync Pro** plan renewed today and I’d like to switch to monthly billing.
+    My CloudSync Pro plan renewed today and I’d like to switch to monthly billing.
     Could you advise?
     Thanks,
     Raj
+    """,
     """
+    Subject: Your #1 fan
+
+    Loving your alpha tabs. How can I buy more?
+
+    xoxo JEFF
+    """,
 ]
+
 
 def main() -> None:
     for raw in sample_emails:
         pred = extract_ticket(email=raw.strip())
         print("\n--- Structured Ticket ---")
-        print(pred.to_json(indent=2))
+        print(pred)
+    print("\n--- DSPy History ---")
+    print(dspy.inspect_history())
+
 
 if __name__ == "__main__":
     main()
