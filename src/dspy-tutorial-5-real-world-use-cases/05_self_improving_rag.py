@@ -10,7 +10,9 @@ This illustrates DSPy.MIPROv2 and uses a proper embeddings-based retriever
 import dspy
 from dotenv import load_dotenv
 
-lm = dspy.LM("openai/gpt-4o-mini")
+load_dotenv(override=True)
+
+lm = dspy.LM("openai/gpt-4o")
 dspy.settings.configure(lm=lm)
 
 corpus: list[str] = [
@@ -80,7 +82,9 @@ def exact_match(example: dspy.Example, pred: dspy.Prediction, trace=None) -> int
 
 # Helper to run & print a small report
 def evaluate_bot(
-    bot: MiniHR, dataset: list[dspy.Example], title: str
+    bot: MiniHR,
+    dataset: list[dspy.Example],
+    title: str,
 ) -> tuple[int, list[tuple[str, str, str, int]]]:
     print(f"\n=== {title} ===")
     correct = 0

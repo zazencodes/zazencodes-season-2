@@ -1,7 +1,6 @@
 # DSPy Tutorial — Master 5 Real‑World Use Cases
 
-This repository accompanies the blog‑style tutorial **“DSPy Tutorial — Master 5 Real‑World Use Cases”**.
-Each Python script here maps to a stage in the learning path; run them in order or open them in a Jupyter notebook.
+This repository accompanies the [ZazenCodes tutorial **"DSPy Tutorial — 5 Real‑World Use Cases"**](https://www.youtube.com/@ZazenCodes).
 
 ---
 

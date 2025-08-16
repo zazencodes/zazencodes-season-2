@@ -9,9 +9,9 @@ from typing import Literal
 import dspy
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
-lm = dspy.LM("openai/gpt-5-nano", temperature=1, max_tokens=20000)
+lm = dspy.LM("openai/gpt-5-mini", temperature=1, max_tokens=20000)
 dspy.settings.configure(lm=lm)
 
 
@@ -21,7 +21,9 @@ class LoanRisk(dspy.Signature):
     approved: bool = dspy.OutputField(desc="approve this person for a loan?")
 
 
-# risk_checker = dspy.ChainOfThought("applicant_profile -> loan_risk")
+# risk_checker = dspy.ChainOfThought(
+#     "applicant_profile: str, age: int, is_male: bool -> loan_risk"
+# )
 risk_checker = dspy.ChainOfThought(LoanRisk)
 
 sample_profile = """Name: Jane Diaz
@@ -34,7 +36,7 @@ Loan purpose: consolidate credit cards
 
 
 def main():
-    pred = risk_checker(applicant_profile=sample_profile)
+    pred = risk_checker(applicant_profile=sample_profile, age=28, is_male="NO")
 
     print("\n--- DSPy History ---")
     print(dspy.inspect_history())

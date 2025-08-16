@@ -2,14 +2,12 @@
 RAG over a tiny handbook using free Hugging Face embeddings.
 """
 
-import textwrap
-
 import dspy
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
-lm = dspy.LM("openai/gpt-5-nano", temperature=1, max_tokens=20000)
+lm = dspy.LM("openai/gpt-5-mini", temperature=1, max_tokens=128000)
 dspy.settings.configure(lm=lm)
 
 corpus: list[str] = [
@@ -41,10 +39,17 @@ search = dspy.retrievers.Embeddings(
 )
 
 
+class RagSignature(dspy.Signature):
+    question: str = dspy.InputField()
+    context: str = dspy.InputField()
+    answer: str = dspy.OutputField()
+
+
 # ---- RAG module (CoT with an explicit reasoning field) -----------------
 class RAG(dspy.Module):
     def __init__(self):
-        self.respond = dspy.ChainOfThought("context, question -> answer")
+        # self.respond = dspy.ChainOfThought("context, question -> answer")
+        self.respond = dspy.ChainOfThought(RagSignature)
 
     def forward(self, question: str):
         ctx_passages = search(question).passages

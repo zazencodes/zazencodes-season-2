@@ -11,9 +11,12 @@ import re
 import dspy
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
-lm = dspy.LM("openai/gpt-5-nano", temperature=1, max_tokens=20000)
+# lm = dspy.LM("openai/gpt-5-mini", temperature=1, max_tokens=128000)
+lm = dspy.LM(
+    "anthropic/claude-sonnet-4-20250514"
+)  # , temperature=1, max_tokens=128000)
 dspy.settings.configure(lm=lm)
 
 # ---- Tools ---------------------------------------------------------------
@@ -42,14 +45,14 @@ exchange_tool = dspy.Tool(get_exchange_rate, name="FX")
 calc_tool = dspy.Tool(calculate, name="Calc")
 
 expense_agent = dspy.ReAct(
-    "question -> answer",
+    "prompt -> answer",
     tools=[exchange_tool, calc_tool],
 )
 
 
 def main():
     q = "I spent 120 EUR on a client dinner. What is that in USD and is it under the $75 per‑person limit?"
-    pred = expense_agent(question=q)
+    pred = expense_agent(prompt=q)
 
     print("\n--- DSPy History ---")
     print(dspy.inspect_history())

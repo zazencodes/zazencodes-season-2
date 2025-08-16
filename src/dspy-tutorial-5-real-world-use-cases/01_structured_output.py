@@ -13,10 +13,10 @@ import dspy
 from dotenv import load_dotenv
 
 # Load OPENAI_API_KEY
-load_dotenv()
+load_dotenv(override=True)
 
 # Configure DSPy
-lm = dspy.LM("openai/gpt-5-nano", temperature=1, max_tokens=20000)
+lm = dspy.LM("openai/gpt-5", temperature=1, max_tokens=128000)
 dspy.settings.configure(lm=lm)
 
 
