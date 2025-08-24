@@ -1,0 +1,13 @@
+cuisine,dietary_restrictions,include_ingredients,exclude_ingredients,max_prep_time_mins,limit,sort_by,city,country
+Italian,,,,,10,,,
+,,tomatoes,,,,,,
+Mexican,vegan,,,5.0,,,,
+,,chickpeas;spinach,peanuts;walnuts,,,Toronto,Canada,
+,,,,,,rating,,
+,,,,30.0,,London,UK,
+Thai,,,,,popularity,,,
+,vegan;soy-free,,,,,,,
+Japanese,,,15,3.0,prep_time,,,
+,,,,45.0,,Toronto,Canada,
+,,,,,,,,Germany
+Mediterranean,,olives;capers,,,,,,
