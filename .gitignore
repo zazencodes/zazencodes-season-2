@@ -42,4 +42,4 @@ src/ai-eng-tier-lists/startups/emojis
 src/mcp-server-analysis/*.json
 src/trip-mapper/2-gemini/trip-planner/node_modules
 src/trip-mapper/2-gemini/trip-planner/package-lock.json
-
+*galea.dev-react*
